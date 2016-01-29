@@ -1,6 +1,14 @@
-﻿Public Class Form1
+﻿'Created by Luke Maple
+'this is the main form with all the main function and is the basic structor of every thing
+'Edit at own risk
+'backed up to github as of 1/28/2016
+
+Public Class Form1
+    'variable used in the painting of green tiles allowing the program to push the tiles up and down as needed to make the board
     Dim switch As Boolean = False
+    'detects if the king has been attacked to win the game
     Public kingclicked As Boolean = False
+
     Dim attackrangex As Integer = 0
     Dim attackrangey As Integer = 0
     Dim redattackrangex As Integer = 0
@@ -44,9 +52,9 @@
     Public RedSelect As Boolean() = {False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False}
     'Blue Unit Select
     Public BlueSelect As Boolean() = {False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False}
-    'Blue Unit Health
+    'All Blue Unit Health (array) 
     Public BlueUnitHealth As Integer() = {10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10}
-    'Red Unit Health
+    'All Red Unit Health (Array)
     Public RedUnitHealth As Integer() = {10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10}
     Dim moveflip As Boolean = False
     Dim moves As Integer = 1
@@ -57,14 +65,14 @@
 
     Private Sub btnEndTurn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEndTurn.Click
         'Updates player turn lable
-            For j = 0 To 49
+        For j = 0 To 49
             RedUnitDone(j) = False
             BlueUnitDone(j) = False
             RedSelect(j) = False
             BlueSelect(j) = False
             redattack(j) = False
             blueattack(j) = False
-            Next
+        Next
         If turn = 1 Then
             turn = 2
         Else
@@ -151,843 +159,843 @@
                 End If
             Next
         End If
-            If turn = 2 Then
-                For j = 0 To 49
-                    If blueattack(j) = True Then
-                        For h = 0 To 49
-                            If RedSelect(h) = True Then
-                                attacktrack = j
-                                selecttrack = h
-                                good = True
-                                Form2.done = False
-                                Form2.Show()
-                            End If
-                        Next
-                    End If
-                    If j = 49 Then
-                        For h = 0 To 49
-                            blueattack(j) = False
-                        Next
-                    End If
-                Next
-            End If
-            If kingclicked = True Then
-                Form3.Show()
-            End If
-            If turn = 1 And BU = False Then
-                For j = 0 To 49
-                    If j = 0 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit1.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit1.Enabled = True
-                        lblBlueUnit1.Visible = True
-                        lblBlueUnit1.Text = "BW"
-                        BU = True
-                    ElseIf j = 1 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit2.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit2.Enabled = True
-                        lblBlueUnit2.Visible = True
-                        lblBlueUnit2.Text = "BW"
-                        BU = True
-                    ElseIf j = 2 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit3.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit3.Enabled = True
-                        lblBlueUnit3.Visible = True
-                        lblBlueUnit3.Text = "BW"
-                        BU = True
-                    ElseIf j = 3 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit4.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit4.Enabled = True
-                        lblBlueUnit4.Visible = True
-                        lblBlueUnit4.Text = "BW"
-                        BU = True
-                    ElseIf j = 4 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit5.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit5.Enabled = True
-                        lblBlueUnit5.Visible = True
-                        lblBlueUnit5.Text = "BW"
-                        BU = True
-                    ElseIf j = 5 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit6.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit6.Enabled = True
-                        lblBlueUnit6.Visible = True
-                        lblBlueUnit6.Text = "BW"
-                        BU = True
-                    ElseIf j = 6 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit7.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit7.Enabled = True
-                        lblBlueUnit7.Visible = True
-                        lblBlueUnit7.Text = "BW"
-                        BU = True
-                    ElseIf j = 7 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit8.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit8.Enabled = True
-                        lblBlueUnit8.Visible = True
-                        lblBlueUnit8.Text = "BW"
-                        BU = True
-                    ElseIf j = 8 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit9.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit9.Enabled = True
-                        lblBlueUnit9.Visible = True
-                        lblBlueUnit9.Text = "BW"
-                        BU = True
-                    ElseIf j = 9 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit10.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit10.Enabled = True
-                        lblBlueUnit10.Visible = True
-                        lblBlueUnit10.Text = "BW"
-                        BU = True
-                    ElseIf j = 10 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit11.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit11.Enabled = True
-                        lblBlueUnit11.Visible = True
-                        lblBlueUnit11.Text = "BW"
-                        BU = True
-                    ElseIf j = 11 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit12.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit12.Enabled = True
-                        lblBlueUnit12.Visible = True
-                        lblBlueUnit12.Text = "BW"
-                        BU = True
-                    ElseIf j = 12 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit13.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit13.Enabled = True
-                        lblBlueUnit13.Visible = True
-                        lblBlueUnit13.Text = "BW"
-                        BU = True
-                    ElseIf j = 13 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit14.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit14.Enabled = True
-                        lblBlueUnit14.Visible = True
-                        lblBlueUnit14.Text = "BW"
-                        BU = True
-                    ElseIf j = 14 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit15.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit15.Enabled = True
-                        lblBlueUnit15.Visible = True
-                        lblBlueUnit15.Text = "BW"
-                        BU = True
-                    ElseIf j = 15 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit16.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit16.Enabled = True
-                        lblBlueUnit16.Visible = True
-                        lblBlueUnit16.Text = "BW"
-                        BU = True
-                    ElseIf j = 16 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit17.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit17.Enabled = True
-                        lblBlueUnit17.Visible = True
-                        lblBlueUnit17.Text = "BW"
-                        BU = True
-                    ElseIf j = 17 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit18.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit18.Enabled = True
-                        lblBlueUnit18.Visible = True
-                        lblBlueUnit18.Text = "BW"
-                        BU = True
-                    ElseIf j = 18 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit19.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit19.Enabled = True
-                        lblBlueUnit19.Visible = True
-                        lblBlueUnit19.Text = "BW"
-                        BU = True
-                    ElseIf j = 19 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit20.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit20.Enabled = True
-                        lblBlueUnit20.Visible = True
-                        lblBlueUnit20.Text = "BW"
-                        BU = True
-                    ElseIf j = 20 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit21.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit21.Enabled = True
-                        lblBlueUnit21.Visible = True
-                        lblBlueUnit21.Text = "BW"
-                        BU = True
-                    ElseIf j = 21 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit22.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit22.Enabled = True
-                        lblBlueUnit22.Visible = True
-                        lblBlueUnit22.Text = "BW"
-                        BU = True
-                    ElseIf j = 22 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit23.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit23.Enabled = True
-                        lblBlueUnit23.Visible = True
-                        lblBlueUnit23.Text = "BW"
-                        BU = True
-                    ElseIf j = 23 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit24.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit24.Enabled = True
-                        lblBlueUnit24.Visible = True
-                        lblBlueUnit24.Text = "BW"
-                        BU = True
-                    ElseIf j = 24 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit25.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit25.Enabled = True
-                        lblBlueUnit25.Visible = True
-                        lblBlueUnit25.Text = "BW"
-                        BU = True
-                    ElseIf j = 25 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit26.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit26.Enabled = True
-                        lblBlueUnit26.Visible = True
-                        lblBlueUnit26.Text = "BW"
-                        BU = True
-                    ElseIf j = 26 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit27.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit27.Enabled = True
-                        lblBlueUnit27.Visible = True
-                        lblBlueUnit27.Text = "BW"
-                        BU = True
-                    ElseIf j = 27 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit28.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit28.Enabled = True
-                        lblBlueUnit28.Visible = True
-                        lblBlueUnit28.Text = "BW"
-                        BU = True
-                    ElseIf j = 28 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit29.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit29.Enabled = True
-                        lblBlueUnit29.Visible = True
-                        lblBlueUnit29.Text = "BW"
-                        BU = True
-                    ElseIf j = 29 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit30.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit30.Enabled = True
-                        lblBlueUnit30.Visible = True
-                        lblBlueUnit30.Text = "BW"
-                        BU = True
-                    ElseIf j = 30 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit31.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit31.Enabled = True
-                        lblBlueUnit31.Visible = True
-                        lblBlueUnit31.Text = "BW"
-                        BU = True
-                    ElseIf j = 31 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit32.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit32.Enabled = True
-                        lblBlueUnit32.Visible = True
-                        lblBlueUnit32.Text = "BW"
-                        BU = True
-                    ElseIf j = 32 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit33.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit33.Enabled = True
-                        lblBlueUnit33.Visible = True
-                        lblBlueUnit33.Text = "BW"
-                        BU = True
-                    ElseIf j = 33 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit34.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit34.Enabled = True
-                        lblBlueUnit34.Visible = True
-                        lblBlueUnit34.Text = "BW"
-                        BU = True
-                    ElseIf j = 34 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit35.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit35.Enabled = True
-                        lblBlueUnit35.Visible = True
-                        lblBlueUnit35.Text = "BW"
-                        BU = True
-                    ElseIf j = 35 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit36.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit36.Enabled = True
-                        lblBlueUnit36.Visible = True
-                        lblBlueUnit36.Text = "BW"
-                        BU = True
-                    ElseIf j = 36 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit37.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit37.Enabled = True
-                        lblBlueUnit37.Visible = True
-                        lblBlueUnit37.Text = "BW"
-                        BU = True
-                    ElseIf j = 37 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit38.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit38.Enabled = True
-                        lblBlueUnit38.Visible = True
-                        lblBlueUnit38.Text = "BW"
-                        BU = True
-                    ElseIf j = 38 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit39.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit39.Enabled = True
-                        lblBlueUnit39.Visible = True
-                        lblBlueUnit39.Text = "BW"
-                        BU = True
-                    ElseIf j = 39 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit40.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit40.Enabled = True
-                        lblBlueUnit40.Visible = True
-                        lblBlueUnit40.Text = "BW"
-                        BU = True
-                    ElseIf j = 40 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit41.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit41.Enabled = True
-                        lblBlueUnit41.Visible = True
-                        lblBlueUnit41.Text = "BW"
-                        BU = True
-                    ElseIf j = 41 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit42.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit42.Enabled = True
-                        lblBlueUnit42.Visible = True
-                        lblBlueUnit42.Text = "BW"
-                        BU = True
-                    ElseIf j = 42 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit43.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit43.Enabled = True
-                        lblBlueUnit43.Visible = True
-                        lblBlueUnit43.Text = "BW"
-                        BU = True
-                    ElseIf j = 43 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit44.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit44.Enabled = True
-                        lblBlueUnit44.Visible = True
-                        lblBlueUnit44.Text = "BW"
-                        BU = True
-                    ElseIf j = 44 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit45.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit45.Enabled = True
-                        lblBlueUnit45.Visible = True
-                        lblBlueUnit45.Text = "BW"
-                        BU = True
-                    ElseIf j = 45 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit46.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit46.Enabled = True
-                        lblBlueUnit46.Visible = True
-                        lblBlueUnit46.Text = "BW"
-                        BU = True
-                    ElseIf j = 46 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit47.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit47.Enabled = True
-                        lblBlueUnit47.Visible = True
-                        lblBlueUnit47.Text = "BW"
-                        BU = True
-                    ElseIf j = 47 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit48.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit48.Enabled = True
-                        lblBlueUnit48.Visible = True
-                        lblBlueUnit48.Text = "BW"
-                        BU = True
-                    ElseIf j = 48 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit49.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit49.Enabled = True
-                        lblBlueUnit49.Visible = True
-                        lblBlueUnit49.Text = "BW"
-                        BU = True
-                    ElseIf j = 49 And BU = False And BlueUnitStatus(j) = False Then
-                        BlueUnitStatus(j) = True
-                        BlueUnitHealth(j) = 10
-                        lblBlueUnit50.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
-                        lblBlueUnit50.Enabled = True
-                        lblBlueUnit50.Visible = True
-                        lblBlueUnit50.Text = "BW"
-                        BU = True
-                    End If
-                Next
-            End If
+        If turn = 2 Then
+            For j = 0 To 49
+                If blueattack(j) = True Then
+                    For h = 0 To 49
+                        If RedSelect(h) = True Then
+                            attacktrack = j
+                            selecttrack = h
+                            good = True
+                            Form2.done = False
+                            Form2.Show()
+                        End If
+                    Next
+                End If
+                If j = 49 Then
+                    For h = 0 To 49
+                        blueattack(j) = False
+                    Next
+                End If
+            Next
+        End If
+        If kingclicked = True Then
+            Form3.Show()
+        End If
+        If turn = 1 And BU = False Then
+            For j = 0 To 49
+                If j = 0 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit1.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit1.Enabled = True
+                    lblBlueUnit1.Visible = True
+                    lblBlueUnit1.Text = "BW"
+                    BU = True
+                ElseIf j = 1 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit2.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit2.Enabled = True
+                    lblBlueUnit2.Visible = True
+                    lblBlueUnit2.Text = "BW"
+                    BU = True
+                ElseIf j = 2 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit3.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit3.Enabled = True
+                    lblBlueUnit3.Visible = True
+                    lblBlueUnit3.Text = "BW"
+                    BU = True
+                ElseIf j = 3 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit4.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit4.Enabled = True
+                    lblBlueUnit4.Visible = True
+                    lblBlueUnit4.Text = "BW"
+                    BU = True
+                ElseIf j = 4 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit5.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit5.Enabled = True
+                    lblBlueUnit5.Visible = True
+                    lblBlueUnit5.Text = "BW"
+                    BU = True
+                ElseIf j = 5 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit6.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit6.Enabled = True
+                    lblBlueUnit6.Visible = True
+                    lblBlueUnit6.Text = "BW"
+                    BU = True
+                ElseIf j = 6 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit7.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit7.Enabled = True
+                    lblBlueUnit7.Visible = True
+                    lblBlueUnit7.Text = "BW"
+                    BU = True
+                ElseIf j = 7 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit8.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit8.Enabled = True
+                    lblBlueUnit8.Visible = True
+                    lblBlueUnit8.Text = "BW"
+                    BU = True
+                ElseIf j = 8 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit9.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit9.Enabled = True
+                    lblBlueUnit9.Visible = True
+                    lblBlueUnit9.Text = "BW"
+                    BU = True
+                ElseIf j = 9 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit10.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit10.Enabled = True
+                    lblBlueUnit10.Visible = True
+                    lblBlueUnit10.Text = "BW"
+                    BU = True
+                ElseIf j = 10 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit11.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit11.Enabled = True
+                    lblBlueUnit11.Visible = True
+                    lblBlueUnit11.Text = "BW"
+                    BU = True
+                ElseIf j = 11 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit12.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit12.Enabled = True
+                    lblBlueUnit12.Visible = True
+                    lblBlueUnit12.Text = "BW"
+                    BU = True
+                ElseIf j = 12 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit13.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit13.Enabled = True
+                    lblBlueUnit13.Visible = True
+                    lblBlueUnit13.Text = "BW"
+                    BU = True
+                ElseIf j = 13 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit14.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit14.Enabled = True
+                    lblBlueUnit14.Visible = True
+                    lblBlueUnit14.Text = "BW"
+                    BU = True
+                ElseIf j = 14 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit15.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit15.Enabled = True
+                    lblBlueUnit15.Visible = True
+                    lblBlueUnit15.Text = "BW"
+                    BU = True
+                ElseIf j = 15 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit16.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit16.Enabled = True
+                    lblBlueUnit16.Visible = True
+                    lblBlueUnit16.Text = "BW"
+                    BU = True
+                ElseIf j = 16 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit17.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit17.Enabled = True
+                    lblBlueUnit17.Visible = True
+                    lblBlueUnit17.Text = "BW"
+                    BU = True
+                ElseIf j = 17 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit18.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit18.Enabled = True
+                    lblBlueUnit18.Visible = True
+                    lblBlueUnit18.Text = "BW"
+                    BU = True
+                ElseIf j = 18 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit19.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit19.Enabled = True
+                    lblBlueUnit19.Visible = True
+                    lblBlueUnit19.Text = "BW"
+                    BU = True
+                ElseIf j = 19 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit20.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit20.Enabled = True
+                    lblBlueUnit20.Visible = True
+                    lblBlueUnit20.Text = "BW"
+                    BU = True
+                ElseIf j = 20 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit21.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit21.Enabled = True
+                    lblBlueUnit21.Visible = True
+                    lblBlueUnit21.Text = "BW"
+                    BU = True
+                ElseIf j = 21 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit22.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit22.Enabled = True
+                    lblBlueUnit22.Visible = True
+                    lblBlueUnit22.Text = "BW"
+                    BU = True
+                ElseIf j = 22 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit23.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit23.Enabled = True
+                    lblBlueUnit23.Visible = True
+                    lblBlueUnit23.Text = "BW"
+                    BU = True
+                ElseIf j = 23 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit24.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit24.Enabled = True
+                    lblBlueUnit24.Visible = True
+                    lblBlueUnit24.Text = "BW"
+                    BU = True
+                ElseIf j = 24 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit25.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit25.Enabled = True
+                    lblBlueUnit25.Visible = True
+                    lblBlueUnit25.Text = "BW"
+                    BU = True
+                ElseIf j = 25 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit26.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit26.Enabled = True
+                    lblBlueUnit26.Visible = True
+                    lblBlueUnit26.Text = "BW"
+                    BU = True
+                ElseIf j = 26 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit27.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit27.Enabled = True
+                    lblBlueUnit27.Visible = True
+                    lblBlueUnit27.Text = "BW"
+                    BU = True
+                ElseIf j = 27 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit28.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit28.Enabled = True
+                    lblBlueUnit28.Visible = True
+                    lblBlueUnit28.Text = "BW"
+                    BU = True
+                ElseIf j = 28 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit29.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit29.Enabled = True
+                    lblBlueUnit29.Visible = True
+                    lblBlueUnit29.Text = "BW"
+                    BU = True
+                ElseIf j = 29 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit30.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit30.Enabled = True
+                    lblBlueUnit30.Visible = True
+                    lblBlueUnit30.Text = "BW"
+                    BU = True
+                ElseIf j = 30 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit31.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit31.Enabled = True
+                    lblBlueUnit31.Visible = True
+                    lblBlueUnit31.Text = "BW"
+                    BU = True
+                ElseIf j = 31 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit32.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit32.Enabled = True
+                    lblBlueUnit32.Visible = True
+                    lblBlueUnit32.Text = "BW"
+                    BU = True
+                ElseIf j = 32 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit33.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit33.Enabled = True
+                    lblBlueUnit33.Visible = True
+                    lblBlueUnit33.Text = "BW"
+                    BU = True
+                ElseIf j = 33 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit34.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit34.Enabled = True
+                    lblBlueUnit34.Visible = True
+                    lblBlueUnit34.Text = "BW"
+                    BU = True
+                ElseIf j = 34 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit35.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit35.Enabled = True
+                    lblBlueUnit35.Visible = True
+                    lblBlueUnit35.Text = "BW"
+                    BU = True
+                ElseIf j = 35 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit36.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit36.Enabled = True
+                    lblBlueUnit36.Visible = True
+                    lblBlueUnit36.Text = "BW"
+                    BU = True
+                ElseIf j = 36 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit37.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit37.Enabled = True
+                    lblBlueUnit37.Visible = True
+                    lblBlueUnit37.Text = "BW"
+                    BU = True
+                ElseIf j = 37 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit38.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit38.Enabled = True
+                    lblBlueUnit38.Visible = True
+                    lblBlueUnit38.Text = "BW"
+                    BU = True
+                ElseIf j = 38 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit39.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit39.Enabled = True
+                    lblBlueUnit39.Visible = True
+                    lblBlueUnit39.Text = "BW"
+                    BU = True
+                ElseIf j = 39 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit40.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit40.Enabled = True
+                    lblBlueUnit40.Visible = True
+                    lblBlueUnit40.Text = "BW"
+                    BU = True
+                ElseIf j = 40 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit41.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit41.Enabled = True
+                    lblBlueUnit41.Visible = True
+                    lblBlueUnit41.Text = "BW"
+                    BU = True
+                ElseIf j = 41 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit42.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit42.Enabled = True
+                    lblBlueUnit42.Visible = True
+                    lblBlueUnit42.Text = "BW"
+                    BU = True
+                ElseIf j = 42 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit43.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit43.Enabled = True
+                    lblBlueUnit43.Visible = True
+                    lblBlueUnit43.Text = "BW"
+                    BU = True
+                ElseIf j = 43 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit44.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit44.Enabled = True
+                    lblBlueUnit44.Visible = True
+                    lblBlueUnit44.Text = "BW"
+                    BU = True
+                ElseIf j = 44 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit45.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit45.Enabled = True
+                    lblBlueUnit45.Visible = True
+                    lblBlueUnit45.Text = "BW"
+                    BU = True
+                ElseIf j = 45 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit46.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit46.Enabled = True
+                    lblBlueUnit46.Visible = True
+                    lblBlueUnit46.Text = "BW"
+                    BU = True
+                ElseIf j = 46 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit47.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit47.Enabled = True
+                    lblBlueUnit47.Visible = True
+                    lblBlueUnit47.Text = "BW"
+                    BU = True
+                ElseIf j = 47 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit48.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit48.Enabled = True
+                    lblBlueUnit48.Visible = True
+                    lblBlueUnit48.Text = "BW"
+                    BU = True
+                ElseIf j = 48 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit49.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit49.Enabled = True
+                    lblBlueUnit49.Visible = True
+                    lblBlueUnit49.Text = "BW"
+                    BU = True
+                ElseIf j = 49 And BU = False And BlueUnitStatus(j) = False Then
+                    BlueUnitStatus(j) = True
+                    BlueUnitHealth(j) = 10
+                    lblBlueUnit50.Location = New Point(16 + 10 * 24, 16 + 22 * 23)
+                    lblBlueUnit50.Enabled = True
+                    lblBlueUnit50.Visible = True
+                    lblBlueUnit50.Text = "BW"
+                    BU = True
+                End If
+            Next
+        End If
 
-            If turn = 2 And BU = False Then
-                For j = 0 To 49
-                    If BU = False And j = 0 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit1.Location = New Point(16 + 10 * 24, 16 + 1 * 23)
-                        lblRedUnit1.Enabled = True
-                        lblRedUnit1.Visible = True
-                        lblRedUnit1.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 1 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit2.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit2.Enabled = True
-                        lblRedUnit2.Visible = True
-                        lblRedUnit2.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 2 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit3.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit3.Enabled = True
-                        lblRedUnit3.Visible = True
-                        lblRedUnit3.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 3 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit4.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit4.Enabled = True
-                        lblRedUnit4.Visible = True
-                        lblRedUnit4.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 4 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit5.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit5.Enabled = True
-                        lblRedUnit5.Visible = True
-                        lblRedUnit5.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 5 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit6.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit6.Enabled = True
-                        lblRedUnit6.Visible = True
-                        lblRedUnit6.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 6 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit7.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit7.Enabled = True
-                        lblRedUnit7.Visible = True
-                        lblRedUnit7.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 7 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit8.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit8.Enabled = True
-                        lblRedUnit8.Visible = True
-                        lblRedUnit8.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 8 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit9.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit9.Enabled = True
-                        lblRedUnit9.Visible = True
-                        lblRedUnit9.Text = "RW"
+        If turn = 2 And BU = False Then
+            For j = 0 To 49
+                If BU = False And j = 0 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit1.Location = New Point(16 + 10 * 24, 16 + 1 * 23)
+                    lblRedUnit1.Enabled = True
+                    lblRedUnit1.Visible = True
+                    lblRedUnit1.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 1 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit2.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit2.Enabled = True
+                    lblRedUnit2.Visible = True
+                    lblRedUnit2.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 2 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit3.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit3.Enabled = True
+                    lblRedUnit3.Visible = True
+                    lblRedUnit3.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 3 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit4.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit4.Enabled = True
+                    lblRedUnit4.Visible = True
+                    lblRedUnit4.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 4 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit5.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit5.Enabled = True
+                    lblRedUnit5.Visible = True
+                    lblRedUnit5.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 5 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit6.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit6.Enabled = True
+                    lblRedUnit6.Visible = True
+                    lblRedUnit6.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 6 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit7.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit7.Enabled = True
+                    lblRedUnit7.Visible = True
+                    lblRedUnit7.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 7 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit8.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit8.Enabled = True
+                    lblRedUnit8.Visible = True
+                    lblRedUnit8.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 8 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit9.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit9.Enabled = True
+                    lblRedUnit9.Visible = True
+                    lblRedUnit9.Text = "RW"
 
-                        BU = True
-                    ElseIf BU = False And j = 9 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit10.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit10.Enabled = True
-                        lblRedUnit10.Visible = True
-                        lblRedUnit10.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 10 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit11.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit11.Enabled = True
-                        lblRedUnit11.Visible = True
-                        lblRedUnit11.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 11 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit12.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit12.Enabled = True
-                        lblRedUnit12.Visible = True
-                        lblRedUnit12.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 12 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit13.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit13.Enabled = True
-                        lblRedUnit13.Visible = True
-                        lblRedUnit13.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 13 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit14.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit14.Enabled = True
-                        lblRedUnit14.Visible = True
-                        lblRedUnit14.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 14 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit15.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit15.Enabled = True
-                        lblRedUnit15.Visible = True
-                        lblRedUnit15.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 15 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit16.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit16.Enabled = True
-                        lblRedUnit16.Visible = True
-                        lblRedUnit16.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 16 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit17.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit17.Enabled = True
-                        lblRedUnit17.Visible = True
-                        lblRedUnit17.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 17 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit18.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit18.Enabled = True
-                        lblRedUnit18.Visible = True
-                        lblRedUnit18.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 18 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit19.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit19.Enabled = True
-                        lblRedUnit19.Visible = True
-                        lblRedUnit19.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 19 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit20.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit20.Enabled = True
-                        lblRedUnit20.Visible = True
-                        lblRedUnit20.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 20 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit21.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit21.Enabled = True
-                        lblRedUnit21.Visible = True
-                        lblRedUnit21.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 21 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit22.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit22.Enabled = True
-                        lblRedUnit22.Visible = True
-                        lblRedUnit22.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 22 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit3.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit23.Enabled = True
-                        lblRedUnit23.Visible = True
-                        lblRedUnit23.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 23 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit24.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit24.Enabled = True
-                        lblRedUnit24.Visible = True
-                        lblRedUnit24.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 24 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit25.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit25.Enabled = True
-                        lblRedUnit25.Visible = True
-                        lblRedUnit25.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 25 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit26.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit26.Enabled = True
-                        lblRedUnit26.Visible = True
-                        lblRedUnit26.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 26 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit27.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit27.Enabled = True
-                        lblRedUnit27.Visible = True
-                        lblRedUnit27.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 27 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit28.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit28.Enabled = True
-                        lblRedUnit28.Visible = True
-                        lblRedUnit28.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 28 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit29.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit29.Enabled = True
-                        lblRedUnit29.Visible = True
-                        lblRedUnit29.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 29 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit30.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit30.Enabled = True
-                        lblRedUnit30.Visible = True
-                        lblRedUnit30.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 30 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit31.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit31.Enabled = True
-                        lblRedUnit31.Visible = True
-                        lblRedUnit31.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 31 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit32.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit32.Enabled = True
-                        lblRedUnit32.Visible = True
-                        lblRedUnit32.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 32 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit33.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit33.Enabled = True
-                        lblRedUnit33.Visible = True
-                        lblRedUnit33.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 33 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit34.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit34.Enabled = True
-                        lblRedUnit34.Visible = True
-                        lblRedUnit34.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 34 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit35.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit35.Enabled = True
-                        lblRedUnit35.Visible = True
-                        lblRedUnit35.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 35 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit36.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit36.Enabled = True
-                        lblRedUnit36.Visible = True
-                        lblRedUnit36.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 36 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit37.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit37.Enabled = True
-                        lblRedUnit37.Visible = True
-                        lblRedUnit37.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 37 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit38.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit38.Enabled = True
-                        lblRedUnit38.Visible = True
-                        lblRedUnit38.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 38 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit39.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit39.Enabled = True
-                        lblRedUnit39.Visible = True
-                        lblRedUnit39.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 39 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit40.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit40.Enabled = True
-                        lblRedUnit40.Visible = True
-                        lblRedUnit40.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 40 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit41.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit41.Enabled = True
-                        lblRedUnit41.Visible = True
-                        lblRedUnit41.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 41 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit42.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit42.Enabled = True
-                        lblRedUnit42.Visible = True
-                        lblRedUnit42.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 42 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit43.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit43.Enabled = True
-                        lblRedUnit43.Visible = True
-                        lblRedUnit43.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 43 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit44.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit44.Enabled = True
-                        lblRedUnit44.Visible = True
-                        lblRedUnit44.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 44 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit45.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit45.Enabled = True
-                        lblRedUnit45.Visible = True
-                        lblRedUnit45.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 45 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit46.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit46.Enabled = True
-                        lblRedUnit46.Visible = True
-                        lblRedUnit46.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 46 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit47.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit47.Enabled = True
-                        lblRedUnit47.Visible = True
-                        lblRedUnit47.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 47 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit48.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit48.Enabled = True
-                        lblRedUnit48.Visible = True
-                        lblRedUnit48.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 48 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit49.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit49.Enabled = True
-                        lblRedUnit49.Visible = True
-                        lblRedUnit49.Text = "RW"
-                        BU = True
-                    ElseIf BU = False And j = 49 And RedUnitStatus(j) = False Then
-                        RedUnitStatus(j) = True
-                        RedUnitHealth(j) = 10
-                        lblRedUnit50.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
-                        lblRedUnit50.Enabled = True
-                        lblRedUnit50.Visible = True
-                        lblRedUnit50.Text = "RW"
-                        BU = True
-                    ElseIf j = 49 And BU = False Then
-                        BU = True
-                    End If
-                Next
-            End If
+                    BU = True
+                ElseIf BU = False And j = 9 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit10.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit10.Enabled = True
+                    lblRedUnit10.Visible = True
+                    lblRedUnit10.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 10 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit11.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit11.Enabled = True
+                    lblRedUnit11.Visible = True
+                    lblRedUnit11.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 11 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit12.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit12.Enabled = True
+                    lblRedUnit12.Visible = True
+                    lblRedUnit12.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 12 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit13.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit13.Enabled = True
+                    lblRedUnit13.Visible = True
+                    lblRedUnit13.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 13 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit14.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit14.Enabled = True
+                    lblRedUnit14.Visible = True
+                    lblRedUnit14.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 14 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit15.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit15.Enabled = True
+                    lblRedUnit15.Visible = True
+                    lblRedUnit15.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 15 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit16.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit16.Enabled = True
+                    lblRedUnit16.Visible = True
+                    lblRedUnit16.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 16 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit17.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit17.Enabled = True
+                    lblRedUnit17.Visible = True
+                    lblRedUnit17.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 17 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit18.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit18.Enabled = True
+                    lblRedUnit18.Visible = True
+                    lblRedUnit18.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 18 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit19.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit19.Enabled = True
+                    lblRedUnit19.Visible = True
+                    lblRedUnit19.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 19 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit20.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit20.Enabled = True
+                    lblRedUnit20.Visible = True
+                    lblRedUnit20.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 20 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit21.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit21.Enabled = True
+                    lblRedUnit21.Visible = True
+                    lblRedUnit21.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 21 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit22.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit22.Enabled = True
+                    lblRedUnit22.Visible = True
+                    lblRedUnit22.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 22 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit3.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit23.Enabled = True
+                    lblRedUnit23.Visible = True
+                    lblRedUnit23.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 23 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit24.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit24.Enabled = True
+                    lblRedUnit24.Visible = True
+                    lblRedUnit24.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 24 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit25.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit25.Enabled = True
+                    lblRedUnit25.Visible = True
+                    lblRedUnit25.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 25 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit26.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit26.Enabled = True
+                    lblRedUnit26.Visible = True
+                    lblRedUnit26.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 26 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit27.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit27.Enabled = True
+                    lblRedUnit27.Visible = True
+                    lblRedUnit27.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 27 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit28.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit28.Enabled = True
+                    lblRedUnit28.Visible = True
+                    lblRedUnit28.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 28 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit29.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit29.Enabled = True
+                    lblRedUnit29.Visible = True
+                    lblRedUnit29.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 29 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit30.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit30.Enabled = True
+                    lblRedUnit30.Visible = True
+                    lblRedUnit30.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 30 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit31.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit31.Enabled = True
+                    lblRedUnit31.Visible = True
+                    lblRedUnit31.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 31 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit32.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit32.Enabled = True
+                    lblRedUnit32.Visible = True
+                    lblRedUnit32.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 32 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit33.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit33.Enabled = True
+                    lblRedUnit33.Visible = True
+                    lblRedUnit33.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 33 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit34.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit34.Enabled = True
+                    lblRedUnit34.Visible = True
+                    lblRedUnit34.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 34 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit35.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit35.Enabled = True
+                    lblRedUnit35.Visible = True
+                    lblRedUnit35.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 35 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit36.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit36.Enabled = True
+                    lblRedUnit36.Visible = True
+                    lblRedUnit36.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 36 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit37.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit37.Enabled = True
+                    lblRedUnit37.Visible = True
+                    lblRedUnit37.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 37 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit38.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit38.Enabled = True
+                    lblRedUnit38.Visible = True
+                    lblRedUnit38.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 38 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit39.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit39.Enabled = True
+                    lblRedUnit39.Visible = True
+                    lblRedUnit39.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 39 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit40.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit40.Enabled = True
+                    lblRedUnit40.Visible = True
+                    lblRedUnit40.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 40 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit41.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit41.Enabled = True
+                    lblRedUnit41.Visible = True
+                    lblRedUnit41.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 41 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit42.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit42.Enabled = True
+                    lblRedUnit42.Visible = True
+                    lblRedUnit42.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 42 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit43.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit43.Enabled = True
+                    lblRedUnit43.Visible = True
+                    lblRedUnit43.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 43 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit44.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit44.Enabled = True
+                    lblRedUnit44.Visible = True
+                    lblRedUnit44.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 44 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit45.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit45.Enabled = True
+                    lblRedUnit45.Visible = True
+                    lblRedUnit45.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 45 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit46.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit46.Enabled = True
+                    lblRedUnit46.Visible = True
+                    lblRedUnit46.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 46 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit47.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit47.Enabled = True
+                    lblRedUnit47.Visible = True
+                    lblRedUnit47.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 47 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit48.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit48.Enabled = True
+                    lblRedUnit48.Visible = True
+                    lblRedUnit48.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 48 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit49.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit49.Enabled = True
+                    lblRedUnit49.Visible = True
+                    lblRedUnit49.Text = "RW"
+                    BU = True
+                ElseIf BU = False And j = 49 And RedUnitStatus(j) = False Then
+                    RedUnitStatus(j) = True
+                    RedUnitHealth(j) = 10
+                    lblRedUnit50.Location = New Point(16 + 10 * 24, (16 + 1 * 23))
+                    lblRedUnit50.Enabled = True
+                    lblRedUnit50.Visible = True
+                    lblRedUnit50.Text = "RW"
+                    BU = True
+                ElseIf j = 49 And BU = False Then
+                    BU = True
+                End If
+            Next
+        End If
 
 
 
