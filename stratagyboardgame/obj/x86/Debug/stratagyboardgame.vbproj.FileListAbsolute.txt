@@ -1,0 +1,49 @@
+C:\Users\Luke\Desktop\stratagyboardgame\stratagyboardgame\bin\Debug\stratagyboardgame.exe
+C:\Users\Luke\Desktop\stratagyboardgame\stratagyboardgame\bin\Debug\stratagyboardgame.pdb
+C:\Users\Luke\Desktop\stratagyboardgame\stratagyboardgame\bin\Debug\stratagyboardgame.xml
+C:\Users\Luke\Desktop\stratagyboardgame\stratagyboardgame\obj\x86\Debug\stratagyboardgame.Form1.resources
+C:\Users\Luke\Desktop\stratagyboardgame\stratagyboardgame\obj\x86\Debug\stratagyboardgame.Resources.resources
+C:\Users\Luke\Desktop\stratagyboardgame\stratagyboardgame\obj\x86\Debug\stratagyboardgame.vbproj.GenerateResource.Cache
+C:\Users\Luke\Desktop\stratagyboardgame\stratagyboardgame\obj\x86\Debug\stratagyboardgame.exe
+C:\Users\Luke\Desktop\stratagyboardgame\stratagyboardgame\obj\x86\Debug\stratagyboardgame.xml
+C:\Users\Luke\Desktop\stratagyboardgame\stratagyboardgame\obj\x86\Debug\stratagyboardgame.pdb
+C:\Users\mapleluk000\Desktop\stratagyboardgame\stratagyboardgame\bin\Debug\stratagyboardgame.exe
+C:\Users\mapleluk000\Desktop\stratagyboardgame\stratagyboardgame\bin\Debug\stratagyboardgame.pdb
+C:\Users\mapleluk000\Desktop\stratagyboardgame\stratagyboardgame\bin\Debug\stratagyboardgame.xml
+C:\Users\mapleluk000\Desktop\stratagyboardgame\stratagyboardgame\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\mapleluk000\Desktop\stratagyboardgame\stratagyboardgame\obj\x86\Debug\stratagyboardgame.Form1.resources
+C:\Users\mapleluk000\Desktop\stratagyboardgame\stratagyboardgame\obj\x86\Debug\stratagyboardgame.Resources.resources
+C:\Users\mapleluk000\Desktop\stratagyboardgame\stratagyboardgame\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\mapleluk000\Desktop\stratagyboardgame\stratagyboardgame\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\mapleluk000\Desktop\stratagyboardgame\stratagyboardgame\obj\x86\Debug\stratagyboardgame.exe
+C:\Users\mapleluk000\Desktop\stratagyboardgame\stratagyboardgame\obj\x86\Debug\stratagyboardgame.xml
+C:\Users\mapleluk000\Desktop\stratagyboardgame\stratagyboardgame\obj\x86\Debug\stratagyboardgame.pdb
+C:\Users\Luke\Desktop\work projects\stratagyboardgame\stratagyboardgame\obj\x86\Debug\stratagyboardgame.exe
+C:\Users\Luke\Desktop\work projects\stratagyboardgame\stratagyboardgame\obj\x86\Debug\stratagyboardgame.xml
+C:\Users\Luke\Desktop\work projects\stratagyboardgame\stratagyboardgame\obj\x86\Debug\stratagyboardgame.pdb
+C:\Users\Luke\Desktop\work projects\stratagyboardgame\stratagyboardgame\bin\Debug\stratagyboardgame.exe
+C:\Users\Luke\Desktop\work projects\stratagyboardgame\stratagyboardgame\bin\Debug\stratagyboardgame.pdb
+C:\Users\Luke\Desktop\work projects\stratagyboardgame\stratagyboardgame\bin\Debug\stratagyboardgame.xml
+C:\Users\Luke\Desktop\work projects\stratagyboardgame\stratagyboardgame\obj\x86\Debug\stratagyboardgame.Form1.resources
+C:\Users\Luke\Desktop\work projects\stratagyboardgame\stratagyboardgame\obj\x86\Debug\stratagyboardgame.Resources.resources
+C:\Users\Luke\Desktop\work projects\stratagyboardgame\stratagyboardgame\obj\x86\Debug\stratagyboardgame.vbproj.GenerateResource.Cache
+C:\Users\mapleluk000\Desktop\stratagyboardgame\stratagyboardgame\obj\x86\Debug\stratagyboardgame.Form2.resources
+C:\Users\Luke\Desktop\stratagyboardgame\stratagyboardgame\obj\x86\Debug\stratagyboardgame.Form2.resources
+C:\Users\mapleluk000\Desktop\stratagyboardgame\stratagyboardgame\obj\x86\Debug\stratagyboardgame.Form3.resources
+H:\stratagyboardgame\stratagyboardgame\bin\Debug\stratagyboardgame.exe
+H:\stratagyboardgame\stratagyboardgame\bin\Debug\stratagyboardgame.pdb
+H:\stratagyboardgame\stratagyboardgame\bin\Debug\stratagyboardgame.xml
+H:\stratagyboardgame\stratagyboardgame\obj\x86\Debug\ResolveAssemblyReference.cache
+H:\stratagyboardgame\stratagyboardgame\obj\x86\Debug\stratagyboardgame.Form1.resources
+H:\stratagyboardgame\stratagyboardgame\obj\x86\Debug\stratagyboardgame.Form2.resources
+H:\stratagyboardgame\stratagyboardgame\obj\x86\Debug\stratagyboardgame.Form3.resources
+H:\stratagyboardgame\stratagyboardgame\obj\x86\Debug\stratagyboardgame.Form4.resources
+H:\stratagyboardgame\stratagyboardgame\obj\x86\Debug\stratagyboardgame.Resources.resources
+H:\stratagyboardgame\stratagyboardgame\obj\x86\Debug\GenerateResource.read.1.tlog
+H:\stratagyboardgame\stratagyboardgame\obj\x86\Debug\GenerateResource.write.1.tlog
+H:\stratagyboardgame\stratagyboardgame\obj\x86\Debug\stratagyboardgame.exe
+H:\stratagyboardgame\stratagyboardgame\obj\x86\Debug\stratagyboardgame.xml
+H:\stratagyboardgame\stratagyboardgame\obj\x86\Debug\stratagyboardgame.pdb
+C:\Users\Luke\Desktop\stratagyboardgame\stratagyboardgame\obj\x86\Debug\stratagyboardgame.Form3.resources
+C:\Users\Luke\Desktop\stratagyboardgame\stratagyboardgame\obj\x86\Debug\stratagyboardgame.Form4.resources
+C:\Users\mapleluk000\Desktop\stratagyboardgame\stratagyboardgame\obj\x86\Debug\stratagyboardgame.Form4.resources
